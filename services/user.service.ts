@@ -3,4 +3,8 @@ import { UserEntityCreateModel, UserEntityModel, UserEntityUpdateModel } from '.
 
 export class UserService extends CrudService<UserEntityModel, UserEntityCreateModel, UserEntityUpdateModel> {
     crudBaseUrl = 'user';
+
+    getAllSpecificUsers(): Promise<any> {
+        return this.axiosTokenInstance.post(`/${this.crudBaseUrl}/get`);
+    }
 }
